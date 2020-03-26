@@ -30,8 +30,8 @@ class App extends React.Component {
                 marginLeft:"auto", 
                 marginRight:"auto"}}
                 src="/mr-small.jpg" /> */}
-              <span>Greetings Traveller<br/>Welcome to</span>
-              <span style={{color:"red"}}>Magician's Red</span>
+              <span className="intro">Greetings Traveller<br/>Welcome to</span>
+              <span className="header">Magician's Red</span>
               <div className="App" style={{color:"coral", fontSize:"2vmin", marginTop:"1rem", marginBottom:"2rem"}}>Are you seeking a challenge or an answer?</div>
               <div style={{width:"40vmin"}}>
               <Link to="/challenge" style={{textDecoration:"none"}}>

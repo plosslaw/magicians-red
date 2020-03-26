@@ -38,7 +38,16 @@
 }
 
 .btn-font{
-  font-family: sans-serif;
+  font-family: 'Baloo 2', cursive;  ;
   margin-top: 1rem;
   font-size: calc(10px + 1vmin);
+  border: none;
+}
+
+.header{
+  font-family: 'Gotu', cursive;
+  color: red;
+}
+.intro{
+  font-family: 'Roboto Slab', serif;
 }
