@@ -5,7 +5,6 @@ import Challenge from './components/Challenge'
 import Answer from './components/Answer'
 import PaperBlackBox from './components/PaperBlackBox'
 import CreateBlackBox from './components/CreateBlackBox'
-import StartChallenge from './components/StartChallenge'
 
 class App extends React.Component {
   constructor(props){
@@ -34,9 +33,7 @@ class App extends React.Component {
                 marginRight:"auto",
                 opacity:"100%"
                 }}
-                src="/fire-trans.gif" alt="Welcome to my humble abode"/>{
-                  //img credits: https://giphy.com/chrisgannon Chris Gannon
-                }
+                src="/fire-trans.gif" alt="Welcome to my humble abode"/> 
               <span className="intro">Greetings Traveller<br/>Welcome to</span>
               <span className="header">Magician's Red</span>
               <div className="App" style={{color:"coral", fontSize:"2vmin", marginTop:"1rem", marginBottom:"2rem"}}>Are you seeking a challenge or an answer?</div>
@@ -59,7 +56,7 @@ class App extends React.Component {
         <Route path="/answer" exact component={Answer}/>
         <Route path="/answer/createblackbox" exact component={CreateBlackBox}/>
         <Route path="/answer/paperblackbox" exact component={PaperBlackBox}/>
-        <Route path="/challenge/start" exact component={StartChallenge}/>
+        
         </Router>
       </div>
     );
