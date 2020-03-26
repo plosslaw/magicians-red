@@ -8,11 +8,12 @@ class Results extends Component {
             overflowY: "scroll",
             width:"100%",
             maxHeight:"400px",
-            marginTop:"3rem"
+            marginTop:"3rem",
+            fontSize:"2vmin"
         }
         return(
             <div style={{backgroundColor:"lightgrey"}}>
-                <div style={tableWrapper} className="table-wrapper">
+                <div style={tableWrapper}>
                     <table className="table table-bordered table-striped table-sm sticky">
                         <thead className="table-dark">
                             <tr>
