@@ -13,7 +13,7 @@ class SubmissionModal extends Component {
 
     validateAnswer(ans){
         // const ansRGEX = /^\[+[0-9,\s]+\]$/
-        const ansRGEX = /^[0-9,\s]$/
+        const ansRGEX = /^[0-9,\s]*$/
         return ansRGEX.test(ans)
     }
     

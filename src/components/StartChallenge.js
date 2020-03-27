@@ -92,7 +92,7 @@ class StartChallenge extends Component {
     validateQuery(query){
         // const queryRGEX = /^\[+[0-9,\s]+\]$/
         //simplify input expression
-        const queryRGEX = /^[0-9,\s]$/
+        const queryRGEX = /^[0-9,\s]*$/
         return queryRGEX.test(query)
     }
 
