@@ -153,7 +153,7 @@ class StartChallenge extends Component {
                 })
             }
         }else{
-            alert("Please check your input and follow the format specified exactly:\ne.g. input: \"3, 5, 9, 2, 1\"")
+            alert("Please check your input and follow the format specified exactly:\ne.g. <input>: 3, 5, 9, 2, 1")
         }
         // query.map((ele)=>{
         //     ele.trim()
