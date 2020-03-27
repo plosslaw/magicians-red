@@ -213,7 +213,7 @@ class StartChallenge extends Component {
     render() { 
         return ( 
             <div>
-            <Link to="/Challenge" style={{textDecoration:"none", margin:"1rem"}}>
+            <Link to="/challenge" style={{textDecoration:"none", margin:"1rem"}}>
                 <button type="button" className=" btn btn-dark btn-exit">
                     Back to Challenge Room
                 </button>
