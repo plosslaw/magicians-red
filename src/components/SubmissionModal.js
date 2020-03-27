@@ -43,7 +43,7 @@ class SubmissionModal extends Component {
                     answer:""
                 })
             }else{
-                alert("Hint: Your answer should contain exactly as many items as the size of the black box list you generated and should not contain duplicates\n\nSize of black box list: "+this.props.size)
+                alert(`Hint: Your answer should contain exactly as many items as the size of the black box list you generated and should not contain duplicates\n\nSize of black box list: ${this.props.size}\nSize of your answer: ${temparr2.length}`)
             }
         }else{
             alert("Please check your answer and follow the format specified exactly:\ne.g. <answer>: 3, 5, 9, 2, 1")

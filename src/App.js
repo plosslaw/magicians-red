@@ -26,9 +26,25 @@ class App extends React.Component {
           ()=>{
             return(
             <div className="App-header">
+              <span className="intro">Greetings Traveller<br/>Welcome to</span>
+              <span className="header">Magician's Red</span>
+              <div className="App" style={{color:"coral", fontSize:"2vmin", marginTop:"1vmin", marginBottom:"2vmin"}}>Are you seeking a challenge or an answer?</div>
+              <div style={{width:"40vmin"}}>
+              <Link to="/challenge" style={{textDecoration:"none", zIndex:10}}>
+                <button type="button" className="btn-block btn-secondary btn-font">
+                  Give me a challenge
+                </button>
+              </Link>
+              <Link to="/answer" style={{textDecoration:"none", zIndex:10}}>
+                <button type="button" className="btn-block btn-danger btn-font">
+                  <div>I want an answer</div>
+                </button>
+              </Link>
+              </div>
               <img style={{
-                position:"absolute",
-                bottom:"10%",
+                position:"relative",
+                marginTop:"2vmin",
+                zIndex:0,
                 display:"block", 
                 marginLeft:"auto", 
                 marginRight:"auto",
@@ -37,21 +53,6 @@ class App extends React.Component {
                 src="/fire-trans.gif" alt="Welcome to my humble abode"/>{
                   //img credits: https://giphy.com/chrisgannon Chris Gannon
                 }
-              <span className="intro">Greetings Traveller<br/>Welcome to</span>
-              <span className="header">Magician's Red</span>
-              <div className="App" style={{color:"coral", fontSize:"2vmin", marginTop:"1rem", marginBottom:"2rem"}}>Are you seeking a challenge or an answer?</div>
-              <div style={{width:"40vmin"}}>
-              <Link to="/challenge" style={{textDecoration:"none"}}>
-                <button type="button" className="btn-block btn-secondary btn-font mb-1">
-                  Give me a challenge
-                </button>
-              </Link>
-              <Link to="/answer" style={{textDecoration:"none"}}>
-                <button type="button" className="btn-block btn-danger btn-font">
-                  <div>I want an answer</div>
-                </button>
-              </Link>
-              </div>
             </div>
           )}
         }/>

@@ -23,8 +23,8 @@ class Answer extends Component {
                         <br/><br/>
                         I can query the black box list by asking questions in the following format:
                         <br/><br/>
-                        Input (remove [] for actual input): [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/><br/>
-                        Output: [3, 11, 2] - 
+                        Input: [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/><br/>
+                        Output (remove [] when entering output): [3, 11, 2] - 
                         A collection containing the 1st, 5th and 7th item <br/><br/>
                         <span style={{color:"red"}}>The output collection contains the items specified by the query but in jumbled up
                         order so as to not reveal the exact order of each individual item in the black box list since we don't know if the

@@ -134,7 +134,7 @@ class StartChallenge extends Component {
                 for(let i =0; i<temparr2.length; i++){
                     let ele = temparr2[i]
                     if(ele>this.state.blackbox.length || ele<=0){
-                        alert("Query asks for invalid index, index must be greater than 0 and less than or equals to the size of the black box list")
+                        alert("The query you entered asks for invalid index, index must be greater than 0 and less than or equals to the size of the black box list")
                         error = true
                         break
                     }
