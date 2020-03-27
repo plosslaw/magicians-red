@@ -117,7 +117,8 @@ class StartChallenge extends Component {
         const temparr = this.state.resultsArr
         const ele = this.state.currentQuery
         if(this.validateQuery(ele)){
-            let query = ele.substr(1,ele.length-2).split(",")
+            // let query = ele.substr(1,ele.length-2).split(",")
+            let query = ele.split(",")
             const temparr2 = []
             const hash={}
             query.forEach((ele)=>{

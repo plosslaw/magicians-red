@@ -20,7 +20,8 @@ class SubmissionModal extends Component {
     submitAndDismissModal(event){
         const ele = this.state.answer
         if(this.validateAnswer(ele)){
-            let query = ele.substr(1,ele.length-2).split(",")
+            // let query = ele.substr(1,ele.length-2).split(",")
+            let query = ele.split(",")
             const temparr =[]
             const temparr2 = []
             const hash={}
