@@ -44,6 +44,13 @@
   border: none;
 }
 
+.btn-exit{
+  font-family: 'Baloo 2', cursive;  ;
+  margin-top: 1rem;
+  font-size: 1.3vmin;
+  border: none;
+}
+
 .header{
   font-family: 'Gotu', cursive;
   color: red;

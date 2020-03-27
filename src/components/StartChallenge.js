@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import Input from './Input'
 import Results from './Results'
+import SubmissionModal from './SubmissionModal';
 
 
 class StartChallenge extends Component {
@@ -18,11 +19,16 @@ class StartChallenge extends Component {
             itemSpan:"item",
             currentQuery:"",
             resultsArr:[],
+            modalShow:false,
+            success:false,
         }
         this.changeSize = this.changeSize.bind(this)
         this.handleChange=this.handleChange.bind(this)
         this.queryHandler=this.queryHandler.bind(this)
+        this.setModalShow=this.setModalShow.bind(this)
+        this.submitHandlerWithModal=this.submitHandlerWithModal.bind(this)
     }
+    
     changeSize(event){
         this.setState({
             size: event.target.value
@@ -36,6 +42,44 @@ class StartChallenge extends Component {
                 itemSpan:"items"
             })
         }
+    }
+    setModalShow(visible){
+        this.setState({
+            modalShow:visible
+        })
+    }
+    submitHandlerWithModal(trialAnswer,event){
+        // this.setModalShow(true)
+        let arrMatches=true
+        for(let i=0; i< this.state.blackbox.length; i++){
+            // console.log(trialAnswer[i])
+            if(this.state.blackbox[i] !== trialAnswer[i]){
+                arrMatches = false
+                break
+            }
+        }
+        if(arrMatches){
+            this.setState({
+                success:true,
+                attempt: true
+            })
+            if(this.state.highScore==="N/A"||this.state.highScore > this.state.counter){
+                this.setState({
+                    attemptedSize:this.state.size,
+                    highScore: this.state.counter
+                })
+            }else if(this.state.highScore === this.state.counter && this.state.attemptedSize < this.state.size){
+                this.setState({
+                    attemptedSize:this.state.size
+                })
+            }
+        }else{
+            this.setState({
+                success:false,
+                attempt:true
+            })
+        }
+
     }
 
     handleChange(event){
@@ -96,7 +140,7 @@ class StartChallenge extends Component {
                 }
             }
             if(!error){
-                console.log(resultsarr)
+                // console.log(resultsarr)
                 resultsarr= this.randomizeArray(resultsarr)
                 const res = '['+ resultsarr.toString()+']'
                 temparr.push([ele, res])
@@ -156,14 +200,19 @@ class StartChallenge extends Component {
         this.setState({
             createdBlackBox:true,
             blackbox:newbox,
+            attempt:false,
+            resultsArr:[],
+            counter:0
         })
+        // debugging to cheat and get the blackbox
+        // console.log(newbox) 
     }
 
     render() { 
         return ( 
             <div>
             <Link to="/Challenge" style={{textDecoration:"none", margin:"1rem"}}>
-                <button type="button btn-font" className=" btn btn-dark btn-font">
+                <button type="button" className=" btn btn-dark btn-exit">
                     Back to Challenge Room
                 </button>
             </Link>
@@ -187,7 +236,22 @@ class StartChallenge extends Component {
                         i<sup>th</sup> item in the black box list and n is the number of items in the black box list
                         <br/><br/>
                         e.g. [3, 5, 9, 2, 1]<br/><br/>
-                        <span style={{color:"red", fontSize:"3vmin"}}>You only have one attempt to submit your final answer</span><br/><br/>
+                        <span style={{color:((this.state.attempt&&this.state.success)? "green":"red"), fontSize:"3vmin"}}>
+                            {!this.state.attempt &&
+                                "You only have one attempt to submit your final answer"
+                            }
+                            {this.state.attempt && this.state.success &&
+                                <span>Congratulations!! You passed this challenge!!
+                                    <br/> You took {this.state.counter} {this.state.counter===1?"query":"queries"} to complete this challenge ({this.state.size} {this.state.size===1?"item":"items"})
+                                </span>
+                            }
+                            {this.state.attempt && !this.state.success &&
+                                "Failure... You failed this challenge!"
+                            }
+                            {this.state.attempt && 
+                                <span><br/><br/>The answer is <br/>[ {this.state.blackbox.toString()} ]</span>
+                            }
+                        </span><br/><br/>
                     </div>
                     <div style={{display:"flex", justifyContent:"center"}}>
                         <div style={{width:"60vmin",}} className="regText">
@@ -204,7 +268,7 @@ class StartChallenge extends Component {
                     </div>
                     <div style={{display:"flex", justifyContent:"center"}}>
                         <div style={{width:"60vmin",}}>
-                            <button type="button" onClick={()=>this.resetBlackBox()} className="btn-block btn-secondary btn-font mb-1" disabled={!this.state.createdBlackBox}>
+                            <button type="button" onClick={()=>this.resetBlackBox()} className={this.state.attempt? "btn-block btn-danger btn-font mb-1" :"btn-block btn-secondary btn-font mb-1"} disabled={!this.state.createdBlackBox}>
                                 {this.state.createdBlackBox?  "Reset black box list": "Disabled"}
                             
                             </button>
@@ -212,8 +276,11 @@ class StartChallenge extends Component {
                     </div>
                     <div style={{display:"flex", justifyContent:"center"}}>
                         <div style={{width:"60vmin",}}>
-                            <button type="button" className={this.state.createdBlackBox? "btn-block btn-danger btn-font mb-1" : "btn-block btn-secondary btn-font mb-1"} disabled={!this.state.createdBlackBox}>
-                                {this.state.createdBlackBox?  "Submit final answer": "Disabled"}
+                            <button type="button" 
+                                onClick={()=>this.setModalShow(true)}
+                                className={this.state.createdBlackBox && !this.state.attempt? "btn-block btn-danger btn-font mb-1" : "btn-block btn-secondary btn-font mb-1"} 
+                                disabled={!this.state.createdBlackBox || this.state.attempt}>
+                                {this.state.createdBlackBox && !this.state.attempt?  "Submit final answer": "Disabled"}
                             </button>
                         </div>
                     </div>
@@ -221,7 +288,7 @@ class StartChallenge extends Component {
                         handler={this.queryHandler}
                         value={this.state.currentQuery}
                         handleChange={this.handleChange}
-                        enabled={this.state.createdBlackBox}/>
+                        enabled={this.state.createdBlackBox&&!this.state.attempt}/>
                 </div>
             </div>
             <div className="container-fluid" style={{marginBottom:"30%"}}>
@@ -229,9 +296,15 @@ class StartChallenge extends Component {
                     results={this.state.resultsArr}/> 
             </div>
             <div className="regText" style={{position:"absolute", top:"1rem", right:"1rem", textAlign:"right"}}>
-                Least queries used: {this.state.highScore}
-                <br/>Size of black box list attempted: {this.state.attemptedSize}
+                Size of black box list attempted: {this.state.attemptedSize}
+                <br/>Least queries used: {this.state.highScore}
             </div>
+            <SubmissionModal
+                show={this.state.modalShow}
+                onHide={() => this.setModalShow(false)}
+                submitHandler={this.submitHandlerWithModal}
+                size={this.state.blackbox.length}
+                />
             </div>
         );
     }

@@ -7,7 +7,7 @@ class PaperBlackBox extends Component {
         return ( 
             <div>
             <Link to="/answer" style={{textDecoration:"none", margin:"1rem"}}>
-                <button type="button btn-font" className=" btn btn-dark btn-font">
+                <button type="button btn-exit" className=" btn btn-dark btn-exit">
                     Back to Answer Room
                 </button>
             </Link>

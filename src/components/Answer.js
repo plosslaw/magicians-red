@@ -7,7 +7,7 @@ class Answer extends Component {
         return (
             <div>
             <Link to="/" style={{textDecoration:"none", margin:"1rem"}}>
-                <button type="button btn-font" className=" btn btn-dark btn-font">
+                <button type="button" className=" btn btn-dark btn-exit">
                     Exit Answer Room
                 </button>
             </Link>
