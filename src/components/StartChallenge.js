@@ -92,7 +92,7 @@ class StartChallenge extends Component {
     validateQuery(query){
         // const queryRGEX = /^\[+[0-9,\s]+\]$/
         //simplify input expression
-        const queryRGEX = /[0-9,\s]/
+        const queryRGEX = /^[0-9,\s]$/
         return queryRGEX.test(query)
     }
 
@@ -271,9 +271,12 @@ class StartChallenge extends Component {
                     </div>
                     <div style={{display:"flex", justifyContent:"center"}}>
                         <div style={{width:"60vmin",}}>
-                            <button type="button" onClick={()=>this.resetBlackBox()} className={this.state.attempt? "btn-block btn-danger btn-font mb-1" :"btn-block btn-secondary btn-font mb-1"} disabled={!this.state.createdBlackBox}>
-                                {this.state.createdBlackBox?  "Reset black box list": "Disabled"}
-                            
+                            <button type="button" 
+                                onClick={()=>this.resetBlackBox()} 
+                                className={this.state.attempt? "btn-block btn-danger btn-font mb-1" :"btn-block btn-secondary btn-font mb-1"} 
+                                disabled={!this.state.createdBlackBox}
+                                style={!this.state.createdBlackBox?{cursor:"not-allowed"}:{cursor:"pointer"}}>
+                                    {this.state.createdBlackBox?  "Reset black box list": "Disabled"}
                             </button>
                         </div>
                     </div>
@@ -282,8 +285,9 @@ class StartChallenge extends Component {
                             <button type="button" 
                                 onClick={()=>this.setModalShow(true)}
                                 className={this.state.createdBlackBox && !this.state.attempt? "btn-block btn-danger btn-font mb-1" : "btn-block btn-secondary btn-font mb-1"} 
-                                disabled={!this.state.createdBlackBox || this.state.attempt}>
-                                {this.state.createdBlackBox && !this.state.attempt?  "Submit final answer": "Disabled"}
+                                disabled={!this.state.createdBlackBox || this.state.attempt}
+                                style={!this.state.createdBlackBox || this.state.attempt?{cursor:"not-allowed"}:{cursor:"pointer"}}>
+                                    {this.state.createdBlackBox && !this.state.attempt?  "Submit final answer": "Disabled"}
                             </button>
                         </div>
                     </div>

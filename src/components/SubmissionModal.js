@@ -13,7 +13,7 @@ class SubmissionModal extends Component {
 
     validateAnswer(ans){
         // const ansRGEX = /^\[+[0-9,\s]+\]$/
-        const ansRGEX = /[0-9,\s]/
+        const ansRGEX = /^[0-9,\s]$/
         return ansRGEX.test(ans)
     }
     
@@ -43,7 +43,7 @@ class SubmissionModal extends Component {
                     answer:""
                 })
             }else{
-                alert("Hint: Your answer should contain exactly as many items as the size of the black box list you generated and should not contain duplicates")
+                alert("Hint: Your answer should contain exactly as many items as the size of the black box list you generated and should not contain duplicates\n\nSize of black box list: "+this.props.size)
             }
         }else{
             alert("Please check your answer and follow the format specified exactly:\ne.g. <answer>: 3, 5, 9, 2, 1")
@@ -81,7 +81,8 @@ class SubmissionModal extends Component {
                                 name="query-input"
                                 placeholder= "e.g. [1, 5, 7, 10]"
                                 value={this.state.answer}
-                                onChange={this.handleChange}></input>
+                                onChange={this.handleChange}
+                                />
                             <p style={{fontSize:"0.8rem", color:"red", marginTop:"0.8rem"}}>
                                 You only have ONE attempt to submit the final answer,
                                 you will fail this challenge if you submit the wrong answer
