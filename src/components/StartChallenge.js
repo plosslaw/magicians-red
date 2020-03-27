@@ -90,7 +90,9 @@ class StartChallenge extends Component {
     }
 
     validateQuery(query){
-        const queryRGEX = /^\[+[0-9,\s]+\]$/
+        // const queryRGEX = /^\[+[0-9,\s]+\]$/
+        //simplify input expression
+        const queryRGEX = /[0-9,\s]/
         return queryRGEX.test(query)
     }
 
@@ -151,7 +153,7 @@ class StartChallenge extends Component {
                 })
             }
         }else{
-            alert("Please check your input and follow the format specified exactly:\ne.g. input: \"[3, 5, 9, 2, 1]\"")
+            alert("Please check your input and follow the format specified exactly:\ne.g. input: \"3, 5, 9, 2, 1\"")
         }
         // query.map((ele)=>{
         //     ele.trim()
@@ -223,7 +225,7 @@ class StartChallenge extends Component {
                         You can query the black box list by asking questions in the following format:
                         <br/><br/>
                         Black Box List of size n: [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ... a<sub>n</sub>]<br/><br/>
-                        Input: [k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, ... k<sub>m</sub>] - Give me the k<sub>1</sub><sup>th</sup>, 
+                        Input (remove [] for actual input): [k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, ... k<sub>m</sub>] - Give me the k<sub>1</sub><sup>th</sup>, 
                         k<sub>2</sub><sup>th</sup> ... and k<sub>m</sub><sup>th</sup> item in the list <br/>
                         Output: [a<sub>k<sub>1</sub></sub>, a<sub>k<sub>2</sub></sub>, a<sub>k<sub>3</sub></sub>, ... a<sub>k<sub>m</sub></sub>] - 
                         A collection containing the a<sub>k<sub>1</sub></sub><sup>th</sup>, a<sub>k<sub>2</sub></sub><sup>th</sup> ... and a<sub>k<sub>m</sub></sub><sup>th</sup> item in random order<br/><br/>
@@ -231,7 +233,7 @@ class StartChallenge extends Component {
                         Input: [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
                         Output: [3, 11, 2] - 
                         A collection containing the 1st, 5th and 7th item in random order<br/><br/>
-                        Once you feel that you know the order of the items in the black box list, submit your answer in the format below:<br/><br/>
+                        Once you feel that you know the order of the items in the black box list, submit your answer in the format below (without brackets []):<br/><br/>
                         [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>... a<sub>i</sub>, ...a<sub>n</sub>]<br/>where a<sub>i</sub> is the 
                         i<sup>th</sup> item in the black box list and n is the number of items in the black box list
                         <br/><br/>

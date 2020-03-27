@@ -25,7 +25,7 @@ class Challenge extends React.Component {
                         <br/><br/>
                         You can query the black box list by asking questions in the following format:
                         <br/><br/>
-                        Input: [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
+                        Input (remove [] for actual input): [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
                         Output: [3, 11, 2] - 
                         A collection containing the 1st, 5th and 7th item <br/><br/>
                         <span style={{color:"red"}}>The output collection contains the items specified by the query but in jumbled up
@@ -35,7 +35,7 @@ class Challenge extends React.Component {
                         Obviously the maximum size of the input is the size of the black box list 
                         which will return a collection that contains all the items in the black box list<br/><br/>
 
-                        Once you feel that you know the order of the items in the black box list, submit your answer in the format below:<br/>
+                        Once you feel that you know the order of the items in the black box list, submit your answer in the format below (without brackets []):<br/>
                         [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>... a<sub>i</sub>, ...a<sub>n</sub>]<br/><br/>where a<sub>i</sub> is the 
                         i<sup>th</sup> item in the black box list and n is the number of items in the black box list
                         <br/><br/>
