@@ -32,14 +32,14 @@ class Answer extends Component {
                         </span>
                     </div>
                 </div>
-                <Link to="/answer/createblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center", marginTop:"5rem"}}>
+                <Link to="/answer/createblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center", marginTop:"3vmin"}}>
                     <div style={{width:"60vmin"}}>
                         <button type="button" className="btn-block btn-secondary btn-font">
                             Create black box list, I promise I won't peek
                         </button>
                     </div>
                 </Link>
-                <Link to="/answer/paperblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center", marginTop:"0.2rem"}}>
+                <Link to="/answer/paperblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center",}}>
                     <div style={{width:"60vmin"}}>
                         <button type="button" className="btn-block btn-danger btn-font">
                             Try writing the contents of the black box on paper instead
