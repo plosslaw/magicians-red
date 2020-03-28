@@ -183,7 +183,6 @@ class PaperBlackBox extends Component {
                 leftover=outputArrComp[0]
             }
             bitmask*=2
-    loop2:
             for(let j=1;j<this.state.numOfQueries;j++){
                 hash3={}
                 temparr = []
@@ -205,7 +204,7 @@ class PaperBlackBox extends Component {
                     console.log('missing elements')
                     this.setState({
                         err:true,
-                        errMsg:"Invalid output collection: missing item in overlap"
+                        errMsg:"A dark void looms over your fate"
                     })
                     break loop1
                 }else{
@@ -218,7 +217,7 @@ class PaperBlackBox extends Component {
                 console.log('multiple elements')
                 this.setState({
                     err:true,
-                    errMsg:"Invalid output collection: multiple items found in overlap"
+                    errMsg:"Your fate shatters into fragments like shards of a broken mirror"
                 })
                 break
             }else{
@@ -360,7 +359,7 @@ class PaperBlackBox extends Component {
                             </div>
                         }
                         {this.state.counter===this.state.numOfQueries && this.state.accept && !this.state.reveal &&
-                            <div style={{display:"flex", justifyContent:"center", marginTop:"8vmin"}}>
+                            <div style={{display:"flex", justifyContent:"center", marginTop:"5vmin"}}>
                                 <div style={{width:"40vmin"}}>
                                     <button 
                                         className="btn-block regText btn-danger border-0"
@@ -373,7 +372,8 @@ class PaperBlackBox extends Component {
                             </div>
                         }
                         {this.state.reveal&&!this.state.err&&
-                            <div>
+                            <div style={{fontSize:"2vmin"}}>
+                                <br/>
                                 By trial of fire, I bestow upon you the Blinding Light of Kars, the Divine Wind of Wamuu, and the Eternal Flames of Esidisi
                                 <br/><br/>
                                 Behold the contents of the black box list:
@@ -382,11 +382,13 @@ class PaperBlackBox extends Component {
                             </div>
                         }
                         {this.state.reveal&&this.state.err&&
-                            <div>
+                            <div style={{fontSize:"2vmin"}}>
+                                <br/>
                                 Noo... It can't be.... My magic... fails me...
                                 <br/><br/>
-                                Reason for failure: {this.state.errMsg}
-                                <br/>
+                                <span style={{color:"red", fontWeight:"bold"}}>Cannot proceed with prophecy: 
+                                <br/>{this.state.errMsg}</span>
+                                <br/><br/>
                                 Please double check the output collection you provided and try again.<br/>
                                 Try writing down the input query on paper to make sure you did not make any mistakes
                             </div>
