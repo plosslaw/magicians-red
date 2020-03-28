@@ -24,6 +24,7 @@ class CreateBlackBox extends Component {
         this.handleChange=this.handleChange.bind(this)
         this.focusInput = React.createRef()
         this.handleOutput=this.handleOutput.bind(this)
+        this.storeOutput=this.storeOutput.bind(this)
     }
 
     componentDidMount(){
@@ -128,7 +129,8 @@ class CreateBlackBox extends Component {
         })
     }
 
-    storeOutput(){
+    storeOutput(e){
+        e.preventDefault()
         const output = this.state.currOutput
         // console.log(output)
         if(this.validateOutput(output)){
@@ -219,19 +221,33 @@ class CreateBlackBox extends Component {
                 hash3={}
                 temparr = []
                 if((i & bitmask)=== bitmask){
-                    outputArr[j].forEach((ele)=>{
+                    for(let k=0; k<outputArr[j].length;k++){
+                        const ele =outputArr[j][k]
                         hash3[ele] = true
-                    })
+                    }
+                    // outputArr[j].forEach((ele)=>{
+                    //     hash3[ele] = true
+                    // })
                 }else{
-                    outputArrComp[j].forEach((ele)=>{
+                    for(let k=0; k<outputArrComp[j].length;k++){
+                        const ele =outputArrComp[j][k]
                         hash3[ele] = true
-                    })
+                    }
+                    // outputArrComp[j].forEach((ele)=>{
+                    //     hash3[ele] = true
+                    // })
                 }
-                leftover.forEach((ele)=>{
+                for(let k=0; k<leftover.length;k++){
+                    const ele =leftover[k]
                     if(hash3[ele]){
                         temparr.push(ele)
                     }
-                })
+                }
+                // leftover.forEach((ele)=>{
+                //     if(hash3[ele]){
+                //         temparr.push(ele)
+                //     }
+                // })
                 if(temparr.length===0){
                     console.log('missing elements')
                     this.setState({
@@ -319,7 +335,7 @@ class CreateBlackBox extends Component {
                                             return <GeneratedBlackBoxElement hash={this.state.hash} size={this.state.size} ele={ele} index={index} key={index}/>
                                         })}]
                                     </div>
-                                    <br/><br/>
+                                    <br/>
                                     Input: [k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, ... k<sub>m</sub>] - Give me the k<sub>1</sub><sup>th</sup>, 
                                     k<sub>2</sub><sup>th</sup> ... and k<sub>m</sub><sup>th</sup> item in the list <br/>
                                     Output  (remove [] for actual input): [a<sub>k<sub>1</sub></sub>, a<sub>k<sub>2</sub></sub>, a<sub>k<sub>3</sub></sub>, ... a<sub>k<sub>m</sub></sub>] - 
@@ -355,8 +371,8 @@ class CreateBlackBox extends Component {
                         {this.state.accept&&this.state.counter<this.state.numOfQueries &&
                             <div>
                                 I will ask a total of {this.state.numOfQueries} {this.state.numOfQueries===1?"query":"queries"} 
-                                <br/><br/>
-                                <span style={{fontSize:"2vmin"}}>Number of queries asked: {this.state.counter}</span><br/><br/>
+                                <br/>
+                        <span style={{fontSize:"2vmin"}}>Number of queries asked: {(this.state.counter===this.state.numOfQueries-1)?<span style={{fontWeight:"bold", color:"red"}}>{this.state.counter} (1 more query)</span>:<span>{this.state.counter}</span>}</span><br/><br/>
                                 Input: <br/>[ {this.state.queriesArr[this.state.counter].toString()} ]
                                 <br/><br/>
                                 {this.state.err&&
@@ -367,24 +383,25 @@ class CreateBlackBox extends Component {
                                 }
                                 Output:
                                 <div style={{display:"flex", justifyContent:"center", marginTop:"1vmin"}}>
-                                    <div className="input-group" style={{width:"50%"}}>
-                                        <input type="text" 
-                                            className="form-control regText" 
-                                            name="size-input"
-                                            placeholder="e.g. 1, 8, 15, 3"
-                                            value={this.state.currOutput}
-                                            onChange={this.handleOutput}
-                                            autoFocus={true}
-                                            ></input>
-                                        <div className="input-group-append">
-                                            <button 
-                                                className="btn regText btn-danger"
-                                                type="button"
-                                                onClick={(e)=>this.storeOutput(e)}
-                                                >Submit
-                                            </button>
+                                    <form onSubmit={(e)=>this.storeOutput(e)}>
+                                        <div className="input-group">
+                                            <input type="text" 
+                                                className="form-control regText" 
+                                                name="size-input"
+                                                placeholder="e.g. 1, 8, 15, 3"
+                                                value={this.state.currOutput}
+                                                onChange={this.handleOutput}
+                                                autoFocus={true}
+                                                ></input>
+                                            <div className="input-group-append">
+                                                <button 
+                                                    className="btn regText btn-danger"
+                                                    type="submit"
+                                                    >Submit
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         }
@@ -408,7 +425,7 @@ class CreateBlackBox extends Component {
                                     By trial of fire, I bestow upon you the Blinding Light of Kars, the Divine Wind of Wamuu, and the Eternal Flames of Esidisi
                                     <br/><br/>
                                     Behold the contents of the black box list:
-                                    <br/><br/>
+                                    <br/>
                                     <span style={{fontSize:"3vmin", fontWeight:"bold"}}>[ {this.state.blackbox.map((ele)=>{return (" "+ ele +" ")}).toString()} ]</span>
                                 </div>
                                 <Link to="/answer/paperblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center", marginTop:"2vmin"}}>
