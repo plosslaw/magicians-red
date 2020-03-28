@@ -32,7 +32,7 @@ class Answer extends Component {
                         </span>
                     </div>
                 </div>
-                <Link to="/answer/createblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center", marginTop:"3vmin"}}>
+                <Link to="/answer/createblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center", marginTop:"2vmin"}}>
                     <div style={{width:"60vmin"}}>
                         <button type="button" className="btn-block btn-secondary btn-font">
                             Create black box list, I promise I won't peek
