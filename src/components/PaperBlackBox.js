@@ -324,7 +324,6 @@ class PaperBlackBox extends Component {
                                         <button 
                                             className={!this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
                                             type="button"
-                                            disabled={this.state.canEdit}
                                             onClick={(e)=>this.acceptChallenge(e)}
                                             style={this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
                                             >Accept
@@ -332,7 +331,7 @@ class PaperBlackBox extends Component {
                                         <button 
                                             className={this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
                                             type="button"
-                                            disabled={!this.state.canEdit}
+                                            disabled="true"
                                             style={!this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
                                             >Reject
                                         </button>
@@ -401,6 +400,7 @@ class PaperBlackBox extends Component {
                                     <br/><br/>
                                     <span style={{fontSize:"3vmin", fontWeight:"bold"}}>[ {this.state.blackbox.map((ele)=>{return (" "+ ele +" ")}).toString()} ]</span>
                                 </div>
+                                <br/>*if the answer does not match, please double check the output collection you provided
                                 <Link to="/answer/createblackbox" style={{textDecoration:"none", display:"flex", justifyContent:"center", marginTop:"2vmin"}}>
                                     <div style={{width:"60vmin"}}>
                                         <button type="button" className="btn-block btn-danger btn-font">
