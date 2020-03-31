@@ -349,27 +349,29 @@ class CreateBlackBox extends Component {
                                 <div style={{fontSize:"3vmin", color:"red"}}>
                                     Now answer my queries truthfully:<br/>(Enter the items in red)
                                 </div>
-                                <div className="btn-group" style={{width:"60vmin", marginTop:"2vmin", marginBottom:"2vmin"}}>
-                                    <button 
-                                        className={!this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
-                                        type="button"
-                                        disabled={this.state.canEdit}
-                                        onClick={(e)=>this.acceptChallenge(e)}
-                                        style={this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
-                                        >Accept
-                                    </button>
-                                    <button 
-                                        className={this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
-                                        type="button"
-                                        disabled={!this.state.canEdit}
-                                        style={!this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
-                                        >Reject
-                                    </button>
-                                </div>
+                                {!this.state.accept&&
+                                    <div className="btn-group" style={{width:"60vmin", marginTop:"2vmin", marginBottom:"2vmin"}}>
+                                        <button 
+                                            className={!this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
+                                            type="button"
+                                            disabled={this.state.canEdit}
+                                            onClick={(e)=>this.acceptChallenge(e)}
+                                            style={this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
+                                            >Accept
+                                        </button>
+                                        <button 
+                                            className={this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
+                                            type="button"
+                                            disabled={!this.state.canEdit}
+                                            style={!this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
+                                            >Reject
+                                        </button>
+                                    </div>
+                                }
                             </div>
                         }
                         {this.state.accept&&this.state.counter<this.state.numOfQueries &&
-                            <div>
+                            <div><br/>
                                 I will ask a total of {this.state.numOfQueries} {this.state.numOfQueries===1?"query":"queries"} 
                                 <br/>
                         <span style={{fontSize:"2vmin"}}>Number of queries asked: {(this.state.counter===this.state.numOfQueries-1)?<span style={{fontWeight:"bold", color:"red"}}>{this.state.counter} (1 more query)</span>:<span>{this.state.counter}</span>}</span><br/><br/>
@@ -446,7 +448,7 @@ class CreateBlackBox extends Component {
                                 <br/>{this.state.errMsg}</span>
                                 <br/><br/>
                                 Please double check the output collection you provided and try again.<br/>
-                                Try writing down the input query on paper to make sure you did not make any mistakes
+                                Make sure you entered the items in red correctly.
                             </div>
                         }
                     </div>

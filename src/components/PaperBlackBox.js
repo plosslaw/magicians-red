@@ -319,23 +319,25 @@ class PaperBlackBox extends Component {
                                 <div style={{fontSize:"3vmin", color:"red"}}>
                                     Now answer my queries truthfully:
                                 </div>
-                                <div className="btn-group" style={{width:"60vmin", marginTop:"2vmin", marginBottom:"2vmin"}}>
-                                    <button 
-                                        className={!this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
-                                        type="button"
-                                        disabled={this.state.canEdit}
-                                        onClick={(e)=>this.acceptChallenge(e)}
-                                        style={this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
-                                        >Accept
-                                    </button>
-                                    <button 
-                                        className={this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
-                                        type="button"
-                                        disabled={!this.state.canEdit}
-                                        style={!this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
-                                        >Reject
-                                    </button>
-                                </div>
+                                {!this.state.accept&&
+                                    <div className="btn-group" style={{width:"60vmin", marginTop:"2vmin", marginBottom:"2vmin"}}>
+                                        <button 
+                                            className={!this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
+                                            type="button"
+                                            disabled={this.state.canEdit}
+                                            onClick={(e)=>this.acceptChallenge(e)}
+                                            style={this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
+                                            >Accept
+                                        </button>
+                                        <button 
+                                            className={this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
+                                            type="button"
+                                            disabled={!this.state.canEdit}
+                                            style={!this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
+                                            >Reject
+                                        </button>
+                                    </div>
+                                }
                             </div>
                         }
                         {this.state.accept&&this.state.counter<this.state.numOfQueries &&
