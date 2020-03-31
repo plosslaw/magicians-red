@@ -246,7 +246,10 @@ class StartChallenge extends Component {
                         [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>... a<sub>i</sub>, ...a<sub>n</sub>]<br/>where a<sub>i</sub> is the 
                         i<sup>th</sup> item in the black box list and n is the number of items in the black box list
                         <br/><br/>
-                        e.g. [3, 5, 9, 2, 1]<br/><br/>
+                        e.g. [3, 5, 9, 2, 1] 
+                        <i className="fa-refresh fa-spin fa"
+                                style={{opacity:0}}/>
+                        <br/><br/>
                         <span style={{color:((this.state.attempt&&this.state.success)? "green":"red"), fontSize:"3vmin"}}>
                             {!this.state.attempt &&
                                 "You only have one attempt to submit your final answer"
@@ -279,8 +282,6 @@ class StartChallenge extends Component {
                     </div>
                     <div style={{display:"flex", justifyContent:"center"}}>
                         <div style={{width:"60vmin",}}>
-                            <i className="fa-refresh fa-spin fa"
-                                style={{display:"none"}}/>
                             <button type="button" 
                                 onClick={()=>this.resetBlackBox()} 
                                 className={this.state.attempt? "btn-block btn-danger btn-font mb-1 loading" :"btn-block btn-secondary btn-font mb-1 loading"} 
