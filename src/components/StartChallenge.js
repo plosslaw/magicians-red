@@ -279,6 +279,8 @@ class StartChallenge extends Component {
                     </div>
                     <div style={{display:"flex", justifyContent:"center"}}>
                         <div style={{width:"60vmin",}}>
+                            <i className="fa-refresh fa-spin fa"
+                                style={{display:"none"}}/>
                             <button type="button" 
                                 onClick={()=>this.resetBlackBox()} 
                                 className={this.state.attempt? "btn-block btn-danger btn-font mb-1 loading" :"btn-block btn-secondary btn-font mb-1 loading"} 
