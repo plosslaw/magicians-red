@@ -342,6 +342,7 @@ class PaperBlackBox extends Component {
                         }
                         {this.state.accept&&this.state.counter<this.state.numOfQueries &&
                             <div>
+                                <br/>
                                 I will ask a total of {this.state.numOfQueries} {this.state.numOfQueries===1?"query":"queries"} 
                                 <br/>
                                 <span style={{fontSize:"2vmin"}}>Number of queries asked: {(this.state.counter===this.state.numOfQueries-1)?<span style={{fontWeight:"bold", color:"red"}}>{this.state.counter} (1 more query)</span>:<span>{this.state.counter}</span>}</span><br/><br/>
