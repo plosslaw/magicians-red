@@ -21,6 +21,7 @@ class StartChallenge extends Component {
             resultsArr:[],
             modalShow:false,
             success:false,
+            loading:false,
         }
         this.changeSize = this.changeSize.bind(this)
         this.handleChange=this.handleChange.bind(this)
@@ -205,8 +206,15 @@ class StartChallenge extends Component {
             blackbox:newbox,
             attempt:false,
             resultsArr:[],
-            counter:0
-        })
+            counter:0,
+            loading:true,
+        },
+            ()=>{
+                setTimeout(()=>{
+                    this.setState({loading:false})
+                }, 500)
+            }
+        )
         // debugging to cheat and get the blackbox
         // console.log(newbox) 
     }
@@ -273,10 +281,25 @@ class StartChallenge extends Component {
                         <div style={{width:"60vmin",}}>
                             <button type="button" 
                                 onClick={()=>this.resetBlackBox()} 
-                                className={this.state.attempt? "btn-block btn-danger btn-font mb-1" :"btn-block btn-secondary btn-font mb-1"} 
-                                disabled={!this.state.createdBlackBox}
+                                className={this.state.attempt? "btn-block btn-danger btn-font mb-1 loading" :"btn-block btn-secondary btn-font mb-1 loading"} 
+                                disabled={!this.state.createdBlackBox || this.state.loading}
                                 style={!this.state.createdBlackBox?{cursor:"not-allowed"}:{cursor:"pointer"}}>
-                                    {this.state.createdBlackBox?  "Reset black box list": "Disabled"}
+                                    {this.state.createdBlackBox?  
+                                    <span>
+                                        {this.state.loading&&
+                                            <i className="fa-refresh fa-spin fa"
+                                                style={{marginRight:"0.5vmin"}}
+                                            />
+                                        }
+                                        {this.state.loading?
+                                            "Resetting black box list"
+                                            :"Reset black box list"
+                                        }
+                                    </span> : 
+                                    <span>
+                                        Disabled
+                                    </span>
+                                    }
                             </button>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './css/font-awesome.min.css'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Challenge from './components/Challenge'
 import Answer from './components/Answer'

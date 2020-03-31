@@ -109,3 +109,7 @@
   transform: translateY(-2px);
 
 }
+
+button:disabled{
+  opacity:0.5;
+}
