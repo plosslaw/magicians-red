@@ -19,14 +19,14 @@ class Answer extends Component {
                         <br/><br/>
                         For example: we have the following black box list: [2, 14, 9, 15, 3, 7, 11, 16] - 
                         a black box list is just a list whose items we have no knowledge about.<br/> 
-                        <span style={{color:"red"}}>However we are allowed to know the total number of items in the box.</span>
+                        <span style={{fontWeight:"bold"}}>However we are allowed to know the total number of items in the box.</span>
                         <br/><br/>
                         I can query the black box list by asking questions in the following format:
                         <br/><br/>
                         Input: [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/><br/>
                         Output (remove [] when entering output): [3, 11, 2] - 
                         A collection containing the 1st, 5th and 7th item <br/><br/>
-                        <span style={{color:"red"}}>The output collection contains the items specified by the query but in jumbled up
+                        <span style={{fontWeight:"bold"}}>The output collection contains the items specified by the query but in jumbled up
                         order so as to not reveal the exact order of each individual item in the black box list since we don't know if the
                         first item in the output collection corresponds to the 1st, 5th or 7th item in the black box list.
                         </span>
