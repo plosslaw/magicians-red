@@ -12,7 +12,7 @@ class Input extends Component {
                             <input type="text" 
                             className="form-control regText" 
                             name="query-input"
-                            placeholder={this.props.enabled ? "e.g. [1, 5, 7, 10]" : "Generate a black box list first"}
+                            placeholder={this.props.enabled ? "e.g. 1, 5, 7, 10" : "Generate a black box list first"}
                             value={this.props.value}
                             onChange={this.props.handleChange}
                             disabled={!this.props.enabled}
