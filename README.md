@@ -9,5 +9,7 @@ Don't know what that means? Head over to ~~https://magicians-red.herokuapp.com/~
 ## Build and Run
 
 Build: `npm install`
+
 Run: `npm run start`
+
 View: Navigate to `http://localhost:3000/`
