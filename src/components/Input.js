@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class Input extends Component {
     state = {  }
-    render() { 
-        return ( 
+    render() {
+        return (
             <div style={{display:"flex", justifyContent:"center", marginTop:"1rem"}}>
                 <div style={{width:"60vmin",}}>
                     <form onSubmit={this.props.handler}>

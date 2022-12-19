@@ -5,18 +5,18 @@ class PaperBlackBox extends Component {
     constructor(props){
         super(props)
         this.state={
-            size:"",
-            canEdit:true,
-            accept:false,
-            err:false,
-            errMsg:"",  // using alert instead of printing errMsg since \n does not work properly
-            counter:0,
-            queriesArr:[],
-            outputArr:[],
-            numOfQueries:0,
-            currOutput:"",
-            reveal:false,
-            blackbox:""
+            size: "",
+            canEdit: true,
+            accept: false,
+            err: false,
+            errMsg: "",  // using alert instead of printing errMsg since \n does not work properly
+            counter: 0,
+            queriesArr: [],
+            outputArr: [],
+            numOfQueries: 0,
+            currOutput: "",
+            reveal: false,
+            blackbox: "",
         }
         this.handleChange=this.handleChange.bind(this)
         this.focusInput = React.createRef()
@@ -61,18 +61,18 @@ class PaperBlackBox extends Component {
 
     resetSize(){
         this.setState({
-            size:"",
-            canEdit:true,
-            accept:false,
-            err:false,
-            errMsg:"", 
-            counter:0,
-            queriesArr:[],
-            outputArr:[],
-            numOfQueries:0,
-            currOutput:"",
-            reveal:false,
-            blackbox:""
+            size: "",
+            canEdit: true,
+            accept: false,
+            err: false,
+            errMsg: "",
+            counter: 0,
+            queriesArr: [],
+            outputArr: [],
+            numOfQueries: 0,
+            currOutput: "",
+            reveal: false,
+            blackbox: "",
         })
     }
 
@@ -130,11 +130,11 @@ class PaperBlackBox extends Component {
                 temparr3.push(temparr2)
                 // console.log(temparr3)
                 this.setState({
-                    counter:this.state.counter+1,
-                    currOutput:"",
-                    outputArr:temparr3,
-                    err:false,
-                    errMsg:"", 
+                    counter: this.state.counter+1,
+                    currOutput: "",
+                    outputArr: temparr3,
+                    err: false,
+                    errMsg:"",
                 })
             }else{
                 alert(`The output you have given does not contain the same amount of items specified by the input query\n\nSize of input query: ${this.state.queriesArr[this.state.counter].length}\nSize of output collection provided: ${temparr2.length}`)
@@ -303,17 +303,17 @@ class PaperBlackBox extends Component {
                                     {this.state.size==="3"&&<span>[a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>]</span>}
                                     {this.state.size>3&&<span>[a<sub>1</sub>, a<sub>2</sub>, ... a<sub>{this.state.size}</sub>]</span>}
                                     <br/><br/>
-                                    where a<sub>i</sub> is the 
-                                    i<sup>th</sup> item in the black box list - 
+                                    where a<sub>i</sub> is the
+                                    i<sup>th</sup> item in the black box list -
                                     e.g. [3, 5, 9, 2, 1]<br/><br/>
-                                    Input: [k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, ... k<sub>m</sub>] - Give me the k<sub>1</sub><sup>th</sup>, 
+                                    <b>Input:</b> [k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, ... k<sub>m</sub>] - Give me the k<sub>1</sub><sup>th</sup>, 
                                     k<sub>2</sub><sup>th</sup> ... and k<sub>m</sub><sup>th</sup> item in the list <br/>
                                     Output  (remove [] for actual input): [a<sub>k<sub>1</sub></sub>, a<sub>k<sub>2</sub></sub>, a<sub>k<sub>3</sub></sub>, ... a<sub>k<sub>m</sub></sub>] - 
-                                    A collection containing the a<sub>k<sub>1</sub></sub><sup>th</sup>, a<sub>k<sub>2</sub></sub><sup>th</sup> ... and a<sub>k<sub>m</sub></sub><sup>th</sup> item in random order<br/><br/>
+                                    A collection containing the a<sub>k<sub>1</sub></sub><sup>th</sup>, a<sub>k<sub>2</sub></sub><sup>th</sup> ... and a<sub>k<sub>m</sub></sub><sup>th</sup> item in <b>random order</b><br/><br/>
                                     e.g. Black Box List of size 8: [2, 14, 9, 15, 3, 7, 11, 16]<br/><br/>
-                                    Input: [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
-                                    Output: [3, 11, 2] - 
-                                    A collection containing the 1st, 5th and 7th item in random order<br/><br/>
+                                    <b>Input:</b> [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
+                                    <b>Output:</b> [3, 11, 2] -
+                                    A collection containing the 1st, 5th and 7th item in <b>any random order</b><br/><br/>
                                     Before receiving an answer, one must first give answers<br/><br/>
                                 </div>
                                 <div style={{fontSize:"3vmin", color:"red"}}>
@@ -345,7 +345,7 @@ class PaperBlackBox extends Component {
                                 I will ask a total of {this.state.numOfQueries} {this.state.numOfQueries===1?"query":"queries"} 
                                 <br/>
                                 <span style={{fontSize:"2vmin"}}>Number of queries asked: {(this.state.counter===this.state.numOfQueries-1)?<span style={{fontWeight:"bold", color:"red"}}>{this.state.counter} (1 more query)</span>:<span>{this.state.counter}</span>}</span><br/><br/>
-                                Input: <br/>[ {this.state.queriesArr[this.state.counter].toString()} ]
+                                <b>Input:</b> <br/>[ {this.state.queriesArr[this.state.counter].toString()} ]
                                 <br/><br/>
                                 {this.state.err&&
                                     <div>
@@ -353,12 +353,12 @@ class PaperBlackBox extends Component {
                                         <br/><br/>
                                     </div>
                                 }
-                                Output:
+                                <b>Output:</b>
                                 <div style={{display:"flex", justifyContent:"center", marginTop:"1vmin"}}>
                                     <form onSubmit={(e)=>this.storeOutput(e)}>
                                         <div className="input-group">
-                                            <input type="text" 
-                                                className="form-control regText" 
+                                            <input type="text"
+                                                className="form-control regText"
                                                 name="size-input"
                                                 placeholder="e.g. 1, 8, 15, 3"
                                                 value={this.state.currOutput}

@@ -8,20 +8,20 @@ import SubmissionModal from './SubmissionModal';
 class StartChallenge extends Component {
     constructor(props){
         super(props)
-        this.state = { 
+        this.state = {
             highScore: "N/A",
-            counter:0,
-            size:1,
-            attemptedSize:0,
-            blackbox:[],
-            createdBlackBox:false,
+            counter: 0,
+            size: 1,
+            attemptedSize: 0,
+            blackbox: [],
+            createdBlackBox: false,
             generateBtn: "btn-block btn-danger btn-font mb-1",
-            itemSpan:"item",
-            currentQuery:"",
-            resultsArr:[],
-            modalShow:false,
-            success:false,
-            loading:false,
+            itemSpan: "item",
+            currentQuery: "",
+            resultsArr: [],
+            modalShow: false,
+            success: false,
+            loading: false,
         }
         this.changeSize = this.changeSize.bind(this)
         this.handleChange=this.handleChange.bind(this)
@@ -29,7 +29,7 @@ class StartChallenge extends Component {
         this.setModalShow=this.setModalShow.bind(this)
         this.submitHandlerWithModal=this.submitHandlerWithModal.bind(this)
     }
-    
+
     changeSize(event){
         this.setState({
             size: event.target.value
@@ -107,7 +107,7 @@ class StartChallenge extends Component {
             let rand2 = Math.min(Math.floor(Math.random()*arr.length), arr.length-1)
             let buff = temparr[rand1]
             temparr[rand1] = temparr[rand2]
-            temparr[rand2] = buff 
+            temparr[rand2] = buff
         }
         return temparr
     }
@@ -216,11 +216,11 @@ class StartChallenge extends Component {
             }
         )
         // debugging to cheat and get the blackbox
-        // console.log(newbox) 
+        // console.log(newbox)
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div>
             <Link to="/challenge" style={{textDecoration:"none", margin:"1rem"}}>
                 <button type="button" className=" btn btn-dark btn-exit">
@@ -234,19 +234,19 @@ class StartChallenge extends Component {
                         You can query the black box list by asking questions in the following format:
                         <br/><br/>
                         Black Box List of size n: [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ... a<sub>n</sub>]<br/><br/>
-                        Input (remove [] for actual input): [k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, ... k<sub>m</sub>] - Give me the k<sub>1</sub><sup>th</sup>, 
+                        <b>Input (remove [] for actual input):</b> [k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub>, ... k<sub>m</sub>] - Give me the k<sub>1</sub><sup>th</sup>,
                         k<sub>2</sub><sup>th</sup> ... and k<sub>m</sub><sup>th</sup> item in the list <br/>
-                        Output: [a<sub>k<sub>1</sub></sub>, a<sub>k<sub>2</sub></sub>, a<sub>k<sub>3</sub></sub>, ... a<sub>k<sub>m</sub></sub>] - 
-                        A collection containing the a<sub>k<sub>1</sub></sub><sup>th</sup>, a<sub>k<sub>2</sub></sub><sup>th</sup> ... and a<sub>k<sub>m</sub></sub><sup>th</sup> item in random order<br/><br/>
+                        <b>Output:</b> [a<sub>k<sub>1</sub></sub>, a<sub>k<sub>2</sub></sub>, a<sub>k<sub>3</sub></sub>, ... a<sub>k<sub>m</sub></sub>] -
+                        A collection containing the a<sub>k<sub>1</sub></sub><sup>th</sup>, a<sub>k<sub>2</sub></sub><sup>th</sup> ... and a<sub>k<sub>m</sub></sub><sup>th</sup> item in <b>random order</b><br/><br/>
                         e.g. Black Box List of size 8: [2, 14, 9, 15, 3, 7, 11, 16]<br/><br/>
-                        Input: [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
-                        Output: [3, 11, 2] - 
-                        A collection containing the 1st, 5th and 7th item in random order<br/><br/>
+                        <b>Input:</b> [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
+                        <b>Output:</b> [3, 11, 2] -
+                        A collection containing the 1st, 5th and 7th item in <b>any random order</b><br/><br/>
                         Once you feel that you know the order of the items in the black box list, submit your answer in the format below (without brackets []):<br/><br/>
-                        [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>... a<sub>i</sub>, ...a<sub>n</sub>]<br/>where a<sub>i</sub> is the 
+                        [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>... a<sub>i</sub>, ...a<sub>n</sub>]<br/>where a<sub>i</sub> is the
                         i<sup>th</sup> item in the black box list and n is the number of items in the black box list
                         <br/><br/>
-                        e.g. [3, 5, 9, 2, 1] 
+                        e.g. [3, 5, 9, 2, 1]
                         <i className="fa-refresh fa-spin fa"
                                 style={{opacity:0}}/>
                         <br/><br/>
@@ -283,25 +283,27 @@ class StartChallenge extends Component {
                     <div style={{display:"flex", justifyContent:"center"}}>
                         <div style={{width:"60vmin",}}>
                             <button type="button" 
-                                onClick={()=>this.resetBlackBox()} 
+                                onClick={()=>this.resetBlackBox()}
                                 className={this.state.attempt? "btn-block btn-danger btn-font mb-1 loading" :"btn-block btn-secondary btn-font mb-1 loading"} 
                                 disabled={!this.state.createdBlackBox || this.state.loading}
                                 style={!this.state.createdBlackBox?{cursor:"not-allowed"}:{cursor:"pointer"}}>
-                                    {this.state.createdBlackBox?  
-                                    <span>
-                                        {this.state.loading&&
-                                            <i className="fa-refresh fa-spin fa"
-                                                style={{marginRight:"0.5vmin"}}
-                                            />
-                                        }
-                                        {this.state.loading?
-                                            "Resetting black box list"
-                                            :"Reset black box list"
-                                        }
-                                    </span> : 
-                                    <span>
-                                        Disabled
-                                    </span>
+                                    {this.state.createdBlackBox
+                                        ?
+                                        <span>
+                                            {this.state.loading&&
+                                                <i className="fa-refresh fa-spin fa"
+                                                    style={{marginRight:"0.5vmin"}}
+                                                />
+                                            }
+                                            {this.state.loading?
+                                                "Resetting black box list"
+                                                :"Reset black box list"
+                                            }
+                                        </span>
+                                        :
+                                        <span>
+                                            Disabled
+                                        </span>
                                     }
                             </button>
                         </div>
