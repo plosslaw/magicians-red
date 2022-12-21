@@ -241,7 +241,7 @@ class StartChallenge extends Component {
                         e.g. Black Box List of size 8: [2, 14, 9, 15, 3, 7, 11, 16]<br/><br/>
                         <b>Input:</b> [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
                         <b>Output:</b> [3, 11, 2] -
-                        A collection containing the 1st, 5th and 7th item in <b>any random order</b><br/><br/>
+                        A collection containing the 1st, 5th and 7th item in <b>random order</b><br/><br/>
                         Once you feel that you know the order of the items in the black box list, submit your answer in the format below (without brackets []):<br/><br/>
                         [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>... a<sub>i</sub>, ...a<sub>n</sub>]<br/>where a<sub>i</sub> is the
                         i<sup>th</sup> item in the black box list and n is the number of items in the black box list

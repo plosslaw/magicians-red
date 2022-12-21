@@ -279,8 +279,8 @@ class CreateBlackBox extends Component {
         })
 
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <div>
             <Link to="/answer" style={{textDecoration:"none", margin:"1rem"}}>
                 <button type="button btn-exit" className=" btn btn-dark btn-exit">
@@ -295,8 +295,8 @@ class CreateBlackBox extends Component {
                         <br/>
                         <div style={{display:"flex", justifyContent:"center", marginTop:"1vmin"}}>
                             <div className="input-group" style={{width:"50%"}}>
-                            <input type="text" 
-                                className="form-control regText" 
+                            <input type="text"
+                                className="form-control regText"
                                 name="size-input"
                                 placeholder="e.g. 63"
                                 value={this.state.size}
@@ -305,7 +305,7 @@ class CreateBlackBox extends Component {
                                 // autoFocus={true} /* not supported on all browsers */
                                 ref={this.focusInput}></input>
                                 <div className="input-group-append">
-                                    <button 
+                                    <button
                                         className={this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
                                         type="button"
                                         disabled={!this.state.canEdit}
@@ -313,7 +313,7 @@ class CreateBlackBox extends Component {
                                         style={!this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
                                         >Declare
                                     </button>
-                                    <button 
+                                    <button
                                         className={!this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
                                         type="button"
                                         disabled={this.state.canEdit}
@@ -343,7 +343,7 @@ class CreateBlackBox extends Component {
                                     e.g. Black Box List of size 8: [2, 14, 9, 15, 3, 7, 11, 16]<br/><br/>
                                     <b>Input:</b> [1, 5, 7] - Give me the 1st, 5th and 7th item in the list <br/>
                                     <b>Output:</b> [3, 11, 2] -
-                                    A collection containing the 1st, 5th and 7th item in <b>any random order</b><br/><br/>
+                                    A collection containing the 1st, 5th and 7th item in <b>random order</b><br/><br/>
                                     Before receiving an answer, one must first give answers<br/><br/>
                                 </div>
                                 <div style={{fontSize:"3vmin", color:"red"}}>
@@ -351,14 +351,14 @@ class CreateBlackBox extends Component {
                                 </div>
                                 {!this.state.accept&&
                                     <div className="btn-group" style={{width:"60vmin", marginTop:"2vmin", marginBottom:"2vmin"}}>
-                                        <button 
+                                        <button
                                             className={!this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
                                             type="button"
                                             onClick={(e)=>this.acceptChallenge(e)}
                                             style={this.state.canEdit?{cursor:"not-allowed"}:{cursor:"pointer"}}
                                             >Accept
                                         </button>
-                                        <button 
+                                        <button
                                             className={this.state.canEdit?"btn regText btn-danger":"btn regText btn-outline-secondary"}
                                             type="button"
                                             disabled="true"
@@ -410,7 +410,7 @@ class CreateBlackBox extends Component {
                         {this.state.counter===this.state.numOfQueries && this.state.accept && !this.state.reveal &&
                             <div style={{display:"flex", justifyContent:"center", marginTop:"5vmin"}}>
                                 <div style={{width:"40vmin"}}>
-                                    <button 
+                                    <button
                                         className="btn-block regText btn-danger border-0"
                                         type="button"
                                         onClick={(e)=>this.calculateBlackBox(e)}
@@ -445,7 +445,7 @@ class CreateBlackBox extends Component {
                                 <br/>
                                 Noo... It can't be.... My magic... fails me...
                                 <br/><br/>
-                                <span style={{color:"red", fontWeight:"bold"}}>Cannot proceed with prophecy: 
+                                <span style={{color:"red", fontWeight:"bold"}}>Cannot proceed with prophecy:
                                 <br/>{this.state.errMsg}</span>
                                 <br/><br/>
                                 Please double check the output collection you provided and try again.<br/>
@@ -454,10 +454,8 @@ class CreateBlackBox extends Component {
                         }
                     </div>
                 </div>
-                
             </div>
             </div>
-
         );
     }
 }
