@@ -5,10 +5,10 @@ class Challenge extends React.Component {
     state = {
 
     }
-    render() { 
+    render() {
         return (
             <div>
-            <Link to="/" style={{textDecoration:"none", margin:"1rem"}}>
+            <Link to="/magicians-red" style={{textDecoration:"none", margin:"1rem"}}>
                 <button type="button" className=" btn btn-dark btn-exit">
                     Exit Challenge Room
                 </button>

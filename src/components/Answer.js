@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 
 class Answer extends Component {
     state = {  }
-    render() { 
+    render() {
         return (
             <div>
-            <Link to="/" style={{textDecoration:"none", margin:"1rem"}}>
+            <Link to="/magicians-red" style={{textDecoration:"none", margin:"1rem"}}>
                 <button type="button" className=" btn btn-dark btn-exit">
                     Exit Answer Room
                 </button>
