@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/magicians-red/static/css/main.0ea783dd.chunk.css",
-    "main.js": "/magicians-red/static/js/main.f16746b0.chunk.js",
-    "main.js.map": "/magicians-red/static/js/main.f16746b0.chunk.js.map",
+    "main.js": "/magicians-red/static/js/main.755abb45.chunk.js",
+    "main.js.map": "/magicians-red/static/js/main.755abb45.chunk.js.map",
     "runtime-main.js": "/magicians-red/static/js/runtime-main.e39da750.js",
     "runtime-main.js.map": "/magicians-red/static/js/runtime-main.e39da750.js.map",
     "static/js/2.084cd401.chunk.js": "/magicians-red/static/js/2.084cd401.chunk.js",
     "static/js/2.084cd401.chunk.js.map": "/magicians-red/static/js/2.084cd401.chunk.js.map",
     "index.html": "/magicians-red/index.html",
-    "precache-manifest.6747c4befb4ddcff93c266a40cf45167.js": "/magicians-red/precache-manifest.6747c4befb4ddcff93c266a40cf45167.js",
+    "precache-manifest.4115cf2a591107432d7473eeba6f445e.js": "/magicians-red/precache-manifest.4115cf2a591107432d7473eeba6f445e.js",
     "service-worker.js": "/magicians-red/service-worker.js",
     "static/css/main.0ea783dd.chunk.css.map": "/magicians-red/static/css/main.0ea783dd.chunk.css.map",
     "static/js/2.084cd401.chunk.js.LICENSE.txt": "/magicians-red/static/js/2.084cd401.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.e39da750.js",
     "static/js/2.084cd401.chunk.js",
     "static/css/main.0ea783dd.chunk.css",
-    "static/js/main.f16746b0.chunk.js"
+    "static/js/main.755abb45.chunk.js"
   ]
 }

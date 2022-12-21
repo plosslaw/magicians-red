@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "526a05b9999613c4bf4d89c31b151c3a",
+    "revision": "8a3b3456f44a262ca58d07cc42bec1f0",
     "url": "/magicians-red/index.html"
   },
   {
-    "revision": "36a04445c63fd00b782d",
+    "revision": "2d01b22e589f5b4c7212",
     "url": "/magicians-red/static/css/main.0ea783dd.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/magicians-red/static/js/2.084cd401.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "36a04445c63fd00b782d",
-    "url": "/magicians-red/static/js/main.f16746b0.chunk.js"
+    "revision": "2d01b22e589f5b4c7212",
+    "url": "/magicians-red/static/js/main.755abb45.chunk.js"
   },
   {
     "revision": "9f2d4ca46914598ec9ab",
