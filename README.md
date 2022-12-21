@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 A ReactJS App that guesses the permutation of a black box list of distinct items
 
-Don't know what that means? Head over to ~~https://magicians-red.herokuapp.com/~~ and give it a try (Heroku no longer provides free web dynos, will be looking for alternative hosting sites. https://blog.heroku.com/next-chapter)
+Don't know what that means? Head over to https://plosslaw.github.io/magicians-red and give it a try
 
 ## Build and Run
 
